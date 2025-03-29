@@ -1,30 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import uberLogo from "../../assets/images/Logo.png";
 import { Link } from "react-router";
 import SignupForm from "./SignupForm";
 
 const Signup = ({ userType }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   return (
     <div className="min-h-screen w-full flex flex-col justify-between px-5 py-10">
       <div>
         <img src={uberLogo} alt="Uber logo" className="w-full max-w-28 mb-20" />
 
         <div>
-          <SignupForm
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-          />
+          <SignupForm />
 
           <div className="text-center mt-5 text-gray-500">
             {userType === "user" ? (

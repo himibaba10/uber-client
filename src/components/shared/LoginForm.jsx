@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-const LoginForm = ({ email, setEmail, password, setPassword }) => {
+const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const LoginFormSubmitHandler = (e) => {
     e.preventDefault();
   };
@@ -14,7 +16,7 @@ const LoginForm = ({ email, setEmail, password, setPassword }) => {
           What's Your Email
         </label>
         <input
-          type="text"
+          type="email"
           name="email"
           id="email"
           placeholder="Enter your email"
@@ -29,7 +31,7 @@ const LoginForm = ({ email, setEmail, password, setPassword }) => {
           What's Your Password
         </label>
         <input
-          type="text"
+          type="password"
           name="password"
           id="password"
           placeholder="Enter your password"

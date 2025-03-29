@@ -6,7 +6,7 @@
 }
 
 @utility primary-btn {
-  @apply inline-block text-center bg-black text-white px-7 py-4 rounded-lg text-lg/tight;
+  @apply inline-block text-center bg-black text-white px-7 py-4 rounded-lg text-lg/tight cursor-pointer hover:bg-black/70 transition;
 }
 
 @utility form-label {
