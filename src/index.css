@@ -6,5 +6,13 @@
 }
 
 @utility primary-btn {
-  @apply inline-block text-center bg-black text-white px-7 py-4 rounded-lg text-lg;
+  @apply inline-block text-center bg-black text-white px-7 py-4 rounded-lg text-lg/tight;
+}
+
+@utility form-label {
+  @apply inline-block mb-2 text-lg font-medium;
+}
+
+@utility form-input {
+  @apply inline-block w-full bg-gray-100 px-4 py-3 rounded-lg text-lg placeholder:text-base focus:outline-gray-400;
 }

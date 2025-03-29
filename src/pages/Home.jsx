@@ -1,5 +1,5 @@
 import React from "react";
-import berLogo from "../assets/images/Uber-Logo.wine.png";
+import uberLogo from "../assets/images/Logo.png";
 import { Link } from "react-router";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
       className={`bg-[url(/src/assets/images/traffic-light.jpg)] bg-cover bg-center min-h-screen w-full flex flex-col justify-between`}
     >
       <img
-        src={berLogo}
+        src={uberLogo}
         alt="Uber logo"
         className="w-full max-w-28 ml-9 mt-9 invert"
       />

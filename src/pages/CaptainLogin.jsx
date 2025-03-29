@@ -1,7 +1,8 @@
 import React from "react";
+import Login from "../components/shared/Login";
 
 const CaptainLogin = () => {
-  return <div>Captain Login</div>;
+  return <Login userType="captain" />;
 };
 
 export default CaptainLogin;
