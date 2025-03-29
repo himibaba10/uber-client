@@ -1,7 +1,7 @@
-import React from "react";
+import Signup from "../components/shared/Signup";
 
 const UserSignup = () => {
-  return <div>User signup</div>;
+  return <Signup userType="user" />;
 };
 
 export default UserSignup;
