@@ -2,6 +2,7 @@ import React from "react";
 import uberLogo from "../../assets/images/Logo.png";
 import { Link } from "react-router";
 import SignupForm from "./SignupForm";
+import LoginAsUserCaptainButton from "./LoginAsUserCaptainButton";
 
 const Signup = ({ userType }) => {
   return (
@@ -10,14 +11,14 @@ const Signup = ({ userType }) => {
         <img src={uberLogo} alt="Uber logo" className="w-full max-w-28 mb-20" />
 
         <div>
-          <SignupForm />
+          <SignupForm userType={userType} />
 
           <div className="text-center mt-5 text-gray-500">
             {userType === "user" ? (
               <div>
                 <span>Already a user?</span>{" "}
                 <Link
-                  to="/login"
+                  to="/auth/login"
                   className="underline underline-offset-3 hover:text-black"
                 >
                   Login
@@ -27,7 +28,7 @@ const Signup = ({ userType }) => {
               <div>
                 <span>Already a rider?</span>{" "}
                 <Link
-                  to="/captain-login"
+                  to="/auth/captain-login"
                   className="underline underline-offset-3 hover:text-black"
                 >
                   Login
@@ -38,14 +39,7 @@ const Signup = ({ userType }) => {
         </div>
       </div>
 
-      <div>
-        <Link
-          to={userType === "user" ? "/captain-login" : "/login"}
-          className="primary-btn w-full"
-        >
-          <span>Login as {userType === "user" ? "Captain" : "User"}</span>
-        </Link>
-      </div>
+      <LoginAsUserCaptainButton userType={userType} />
     </div>
   );
 };

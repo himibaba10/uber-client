@@ -1,11 +1,39 @@
 import React, { useState } from "react";
+import api from "../../services/api";
+import { useNavigate } from "react-router";
+import useUserProvider from "../../hooks/useUserProvider";
+import useCaptainProvider from "../../hooks/useCaptainProvider";
 
-const LoginForm = () => {
+const LoginForm = ({ userType }) => {
+  const navigate = useNavigate();
+  const { setUser } = useUserProvider();
+  const { setCaptain } = useCaptainProvider();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const LoginFormSubmitHandler = (e) => {
+
+  const LoginFormSubmitHandler = async (e) => {
     e.preventDefault();
+
+    const loginData = { email, password };
+
+    try {
+      const url = userType === "user" ? "/users/login" : "/captains/login";
+      const response = await api.post(url, loginData);
+
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.data.token);
+        const user = response.data.data.user || response.data.data.captain;
+
+        userType === "user" ? setUser(user) : setCaptain(user);
+        userType === "user" ? navigate("/home") : navigate("/captain-home");
+      }
+    } catch (error) {
+      console.error("Login failed");
+      console.log(error);
+    }
   };
+
   return (
     <form
       onSubmit={LoginFormSubmitHandler}
@@ -38,11 +66,12 @@ const LoginForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="form-input"
+          autoComplete="current-password"
           required
         />
       </div>
       <button type="submit" className="primary-btn">
-        Login
+        {userType === "captain" && "Captain"} Login
       </button>
     </form>
   );
